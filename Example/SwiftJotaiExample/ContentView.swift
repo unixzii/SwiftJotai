@@ -8,6 +8,7 @@
 import SwiftJotai
 import SwiftUI
 
+@MainActor
 fileprivate enum Atoms {
     static let countAtom = Atom(0)
     static let countIsLargeAtom = Atom { store in

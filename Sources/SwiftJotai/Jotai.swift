@@ -35,6 +35,7 @@ public class BaseAtom: Hashable {
     }
 }
 
+@MainActor
 public class Atom<T: Equatable>: BaseAtom {
     fileprivate let getter: (Store) -> T
     
@@ -121,6 +122,7 @@ fileprivate class AtomInternals {
     }
 }
 
+@MainActor
 public class Store {
     public static let shared = Store()
     

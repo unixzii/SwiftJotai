@@ -14,6 +14,7 @@ extension ObservableObjectPublisher: SwiftJotai.Subscriber {
     }
 }
 
+@MainActor
 public class AtomValue<T>: ObservableObject where T: Equatable {
     public let objectWillChange = ObservableObjectPublisher()
     
