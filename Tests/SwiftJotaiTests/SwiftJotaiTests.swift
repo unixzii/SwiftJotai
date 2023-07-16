@@ -3,7 +3,7 @@ import XCTest
 
 final class SwiftJotaiTests: XCTestCase {
     func testGeneralUsage() throws {
-        let countAtom = Atom(defaultValue: 0)
+        let countAtom = Atom(0)
         let countIsLargeAtom = Atom { store in
             return store.get(countAtom) > 10
         }
@@ -16,7 +16,7 @@ final class SwiftJotaiTests: XCTestCase {
     }
     
     func testPubSub() throws {
-        let countAtom = Atom(defaultValue: 0)
+        let countAtom = Atom(0)
         let countIsLargeAtom = Atom { store in
             return store.get(countAtom) > 10
         }

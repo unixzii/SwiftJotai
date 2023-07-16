@@ -32,8 +32,8 @@ The `Atom` is a config for an atomic state, as it's just a definition and it doe
 An atom config is an immutable object. The atom config object doesn't hold a value. The atom value exists in a store.
 
 ```swift
-let priceAtom = Atom(defaultValue: 10)
-let messageAtom = Atom(defaultValue: "hello")
+let priceAtom = Atom(10)
+let messageAtom = Atom("hello")
 ```
 
 You can create derived atoms, we pass a getter closure when doing so:
@@ -63,7 +63,7 @@ You can call...
 To combine SwiftJotai with SwiftUI, `AtomValue` is your friend. It's an `ObservableObject` which can be used in any SwiftUI views to trigger re-renders when the atom updates.
 
 ```swift
-let countAtom = Atom(defaultValue: 0)
+let countAtom = Atom(0)
 
 struct CounterView: View {
     @StateObject var count = AtomValue(countAtom)
