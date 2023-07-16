@@ -5,13 +5,13 @@
 //  Created by Cyandev on 2023/7/16.
 //
 
-import SwiftUI
 import SwiftJotai
+import SwiftUI
 
 fileprivate enum Atoms {
-    static let countAtom = Atom(defaultValue: 0)
+    static let countAtom = Atom(0)
     static let countIsLargeAtom = Atom { store in
-        return store.get(countAtom) > 10
+        store.get(countAtom) > 10
     }
 }
 
@@ -25,13 +25,13 @@ extension View {
 
 struct ContentView: View {
     @StateObject var countIsLarge = AtomValue(Atoms.countIsLargeAtom)
-    
+
     var body: some View {
         VStack {
             CounterView()
                 .scaleEffect(countIsLarge.value ? .init(1.5) : .init(1))
                 .animation(.spring(), value: countIsLarge.value)
-            
+
             HStack {
                 Button("-") {
                     let currentValue = Store.shared.get(Atoms.countAtom)
@@ -50,7 +50,7 @@ struct ContentView: View {
 
 struct CounterView: View {
     @StateObject var count = AtomValue(Atoms.countAtom)
-    
+
     var body: some View {
         Text("\(count.value)")
             .font(.system(size: 32, weight: .bold, design: .rounded))

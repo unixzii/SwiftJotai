@@ -38,7 +38,7 @@ public class BaseAtom: Hashable {
 public class Atom<T: Equatable>: BaseAtom {
     fileprivate let getter: (Store) -> T
     
-    public init(defaultValue: T) {
+    public init(_ defaultValue: T) {
         let key = nextId()
         self.getter = {
             return $0.getRaw(key: key, defaultValue: defaultValue)
