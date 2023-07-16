@@ -43,6 +43,8 @@ struct ContentView: View {
                     Store.shared.set(Atoms.countAtom, value: currentValue + 1)
                 }
             }
+            
+            InputView()
         }
         .padding()
         .debugPrint("(A) ContentView is updated")
@@ -58,6 +60,15 @@ struct CounterView: View {
             .contentTransition(.numericText())
             .animation(.spring(), value: count.value)
             .debugPrint("(B) CounterView is updated")
+    }
+}
+
+struct InputView: View {
+    @StateObject var count = AtomValue(Atoms.countAtom)
+    
+    var body: some View {
+        TextField("Value", value: count.binding, formatter: NumberFormatter())
+            .frame(maxWidth: 200)
     }
 }
 

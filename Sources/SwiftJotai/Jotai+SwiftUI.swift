@@ -32,6 +32,14 @@ public class AtomValue<T>: ObservableObject where T: Equatable {
         }
     }
     
+    public var binding: Binding<T> {
+        .init {
+            self.value
+        } set: {
+            self.value = $0
+        }
+    }
+    
     deinit {
         disposer.dispose()
     }
