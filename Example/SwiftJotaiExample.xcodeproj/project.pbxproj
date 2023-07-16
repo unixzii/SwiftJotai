@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA6E69E92A63A96E0073F1FF /* SwiftJotai in Frameworks */ = {isa = PBXBuildFile; productRef = FA6E69E82A63A96E0073F1FF /* SwiftJotai */; };
+		FA6B20E22A63B9C500107883 /* SwiftJotai in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B20E12A63B9C500107883 /* SwiftJotai */; };
 		FA9280722A6303E800A49692 /* SwiftJotaiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9280712A6303E800A49692 /* SwiftJotaiApp.swift */; };
 		FA9280742A6303E800A49692 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9280732A6303E800A49692 /* ContentView.swift */; };
 		FA9280762A6303E900A49692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9280752A6303E900A49692 /* Assets.xcassets */; };
-		FA9280792A6303E900A49692 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9280782A6303E900A49692 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA92806E2A6303E800A49692 /* SwiftJotaiExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftJotaiExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA9280712A6303E800A49692 /* SwiftJotaiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftJotaiApp.swift; path = ../Example/SwiftJotaiApp.swift; sourceTree = "<group>"; };
-		FA9280732A6303E800A49692 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../Example/ContentView.swift; sourceTree = "<group>"; };
-		FA9280752A6303E900A49692 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Example/Assets.xcassets; sourceTree = "<group>"; };
-		FA9280782A6303E900A49692 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA9280712A6303E800A49692 /* SwiftJotaiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftJotaiApp.swift; sourceTree = "<group>"; };
+		FA9280732A6303E800A49692 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FA9280752A6303E900A49692 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA92807A2A6303E900A49692 /* SwiftJotaiExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftJotaiExample.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -28,7 +26,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6E69E92A63A96E0073F1FF /* SwiftJotai in Frameworks */,
+				FA6B20E22A63B9C500107883 /* SwiftJotai in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,19 +56,8 @@
 				FA9280732A6303E800A49692 /* ContentView.swift */,
 				FA9280752A6303E900A49692 /* Assets.xcassets */,
 				FA92807A2A6303E900A49692 /* SwiftJotaiExample.entitlements */,
-				FA9280772A6303E900A49692 /* Preview Content */,
 			);
-			name = SwiftJotaiExample;
-			path = Example;
-			sourceTree = "<group>";
-		};
-		FA9280772A6303E900A49692 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				FA9280782A6303E900A49692 /* Preview Assets.xcassets */,
-			);
-			name = "Preview Content";
-			path = "../Example/Preview Content";
+			path = SwiftJotaiExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,7 +77,7 @@
 			);
 			name = SwiftJotaiExample;
 			packageProductDependencies = (
-				FA6E69E82A63A96E0073F1FF /* SwiftJotai */,
+				FA6B20E12A63B9C500107883 /* SwiftJotai */,
 			);
 			productName = SwiftJotai;
 			productReference = FA92806E2A6303E800A49692 /* SwiftJotaiExample.app */;
@@ -111,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA9280692A6303E800A49692 /* Build configuration list for PBXProject "SwiftJotai" */;
+			buildConfigurationList = FA9280692A6303E800A49692 /* Build configuration list for PBXProject "SwiftJotaiExample" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -121,7 +108,7 @@
 			);
 			mainGroup = FA9280652A6303E800A49692;
 			packageReferences = (
-				FA6E69E72A63A96E0073F1FF /* XCLocalSwiftPackageReference "SwiftJotai" */,
+				FA6B20E02A63B9C500107883 /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = FA92806F2A6303E800A49692 /* Products */;
 			projectDirPath = "";
@@ -137,7 +124,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9280792A6303E900A49692 /* Preview Assets.xcassets in Resources */,
 				FA9280762A6303E900A49692 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,11 +266,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Example/SwiftJotaiExample.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SwiftJotaiExample/SwiftJotaiExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -305,11 +291,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Example/SwiftJotaiExample.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SwiftJotaiExample/SwiftJotaiExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -328,7 +314,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA9280692A6303E800A49692 /* Build configuration list for PBXProject "SwiftJotai" */ = {
+		FA9280692A6303E800A49692 /* Build configuration list for PBXProject "SwiftJotaiExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA92807B2A6303E900A49692 /* Debug */,
@@ -349,14 +335,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		FA6E69E72A63A96E0073F1FF /* XCLocalSwiftPackageReference "SwiftJotai" */ = {
+		FA6B20E02A63B9C500107883 /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = SwiftJotai;
+			relativePath = ..;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA6E69E82A63A96E0073F1FF /* SwiftJotai */ = {
+		FA6B20E12A63B9C500107883 /* SwiftJotai */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftJotai;
 		};
