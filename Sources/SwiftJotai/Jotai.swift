@@ -18,6 +18,10 @@ fileprivate func nextId() -> Int {
 public class BaseAtom: Hashable {
     fileprivate let key: Int
     
+    public var isReadOnly: Bool {
+        fatalError("Not implemented")
+    }
+    
     public static func == (lhs: BaseAtom, rhs: BaseAtom) -> Bool {
         return lhs === rhs
     }
@@ -37,10 +41,16 @@ public class BaseAtom: Hashable {
 
 @MainActor
 public class Atom<T: Equatable>: BaseAtom {
+    private let _isReadOnly: Bool
     fileprivate let getter: (Store) -> T
+    
+    public override var isReadOnly: Bool {
+        return _isReadOnly
+    }
     
     public init(_ defaultValue: T) {
         let key = nextId()
+        _isReadOnly = false
         self.getter = {
             return $0.getRaw(key: key, defaultValue: defaultValue)
         }
@@ -48,6 +58,7 @@ public class Atom<T: Equatable>: BaseAtom {
     }
     
     public init(getter: @escaping (Store) -> T) {
+        _isReadOnly = true
         self.getter = getter
         super.init(key: nextId())
     }
@@ -138,6 +149,11 @@ public class Store {
     }
     
     public func `set`<T: Equatable>(_ atom: Atom<T>, value: T) {
+        guard !atom.isReadOnly else {
+            // TODO: add strict mode to report the error.
+            return
+        }
+        
         let key = atom.key
         if let internals = stateMap[key] {
             internals.value = value
