@@ -1,6 +1,7 @@
 import XCTest
 @testable import SwiftJotai
 
+@MainActor
 final class SwiftJotaiTests: XCTestCase {
     func testGeneralUsage() throws {
         let countAtom = Atom(0)
