@@ -43,23 +43,33 @@ public class BaseAtom: Hashable {
 public class Atom<T: Equatable>: BaseAtom {
     private let _isReadOnly: Bool
     fileprivate let getter: (Store) -> T
+    fileprivate let onUpdate: ((T) -> ())?
     
     public override var isReadOnly: Bool {
         return _isReadOnly
     }
     
-    public init(_ defaultValue: T) {
+    convenience public init(_ defaultValue: T) {
+        self.init(defaultValueGetter: { defaultValue }, onUpdate: nil)
+    }
+    
+    public init(
+        defaultValueGetter: @escaping () -> T,
+        onUpdate: ((T) -> ())?
+    ) {
         let key = nextId()
         _isReadOnly = false
         self.getter = {
-            return $0.getRaw(key: key, defaultValue: defaultValue)
+            return $0.getRaw(key: key, defaultValueGetter: defaultValueGetter)
         }
+        self.onUpdate = onUpdate
         super.init(key: key)
     }
     
     public init(getter: @escaping (Store) -> T) {
         _isReadOnly = true
         self.getter = getter
+        self.onUpdate = nil
         super.init(key: nextId())
     }
     
@@ -160,6 +170,7 @@ public class Store {
         } else {
             stateMap[key] = .init(value: value)
         }
+        atom.onUpdate?(value)
         triggerUpdate(for: key, newValue: value)
     }
     
@@ -190,12 +201,12 @@ public class Store {
         return subscribe(atom: atom, subscriber: subscriber)
     }
     
-    func getRaw<T: Equatable>(key: Int, defaultValue: T) -> T {
+    func getRaw<T: Equatable>(key: Int, defaultValueGetter: () -> T) -> T {
         let internals: AtomInternals
         if let _internals = stateMap[key] {
             internals = _internals
         } else {
-            internals = .init(value: defaultValue)
+            internals = .init(value: defaultValueGetter())
             stateMap[key] = internals
         }
         
@@ -212,6 +223,7 @@ public class Store {
         if let value = internals.value {
             return value as! T
         }
+        let defaultValue = defaultValueGetter()
         internals.value = defaultValue
         return defaultValue
     }

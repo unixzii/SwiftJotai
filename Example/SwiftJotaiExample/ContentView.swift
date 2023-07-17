@@ -11,8 +11,9 @@ import SwiftUI
 @MainActor
 fileprivate enum Atoms {
     static let countAtom = Atom(0)
+    static let largeThresholdAtom = Atom(userDefaultsKey: "LargeThreshold", defaultValue: 10)
     static let countIsLargeAtom = Atom { store in
-        store.get(countAtom) > 10
+        store.get(countAtom) > store.get(largeThresholdAtom)
     }
 }
 
@@ -43,8 +44,10 @@ struct ContentView: View {
                     Store.shared.set(Atoms.countAtom, value: currentValue + 1)
                 }
             }
+            .padding(.bottom, 32)
             
-            InputView()
+            InputView(title: "Count", atom: Atoms.countAtom)
+            InputView(title: "Large Threshold", atom: Atoms.largeThresholdAtom)
         }
         .padding()
         .debugPrint("(A) ContentView is updated")
@@ -64,11 +67,24 @@ struct CounterView: View {
 }
 
 struct InputView: View {
-    @StateObject var count = AtomValue(Atoms.countAtom)
+    let title: String
+    let atom: Atom<Int>
+    
+    @StateObject var count: AtomValue<Int>
+    
+    init(title: String, atom: Atom<Int>) {
+        self.title = title
+        self.atom = atom
+        _count = .init(wrappedValue: .init(atom))
+    }
     
     var body: some View {
-        TextField("Value", value: count.binding, formatter: NumberFormatter())
-            .frame(maxWidth: 200)
+        HStack {
+            Text(title)
+                .frame(width: 100, alignment: .trailing)
+            TextField(title, value: count.binding, formatter: NumberFormatter())
+                .frame(maxWidth: 120)
+        }
     }
 }
 
