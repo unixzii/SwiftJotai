@@ -13,7 +13,7 @@ public protocol UserDefaultsCompatible {
     func write(to userDefaults: UserDefaults, key: String) throws
 }
 
-struct CodableUserDefaults<T: Codable>: UserDefaultsCompatible {
+public struct CodableUserDefaults<T: Codable>: UserDefaultsCompatible {
     var value: T
     
     static func read(from userDefaults: UserDefaults, key: String) throws -> CodableUserDefaults<T>? {
