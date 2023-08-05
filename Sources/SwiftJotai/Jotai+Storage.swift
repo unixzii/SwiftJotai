@@ -14,9 +14,13 @@ public protocol UserDefaultsCompatible {
 }
 
 public struct CodableUserDefaults<T: Codable>: UserDefaultsCompatible {
-    var value: T
+    public var value: T
     
-    static func read(from userDefaults: UserDefaults, key: String) throws -> CodableUserDefaults<T>? {
+    public init(value: T) {
+        self.value = value
+    }
+    
+    public static func read(from userDefaults: UserDefaults, key: String) throws -> CodableUserDefaults<T>? {
         guard let data = userDefaults.data(forKey: key) else {
             return nil
         }
@@ -24,7 +28,7 @@ public struct CodableUserDefaults<T: Codable>: UserDefaultsCompatible {
         return .init(value: value)
     }
     
-    func write(to userDefaults: UserDefaults, key: String) throws {
+    public func write(to userDefaults: UserDefaults, key: String) throws {
         let data = try PropertyListEncoder().encode(value)
         userDefaults.set(data, forKey: key)
     }
